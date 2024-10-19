@@ -67,7 +67,7 @@ public class ShooterIOKraken implements ShooterIO {
                 inputs.topMotorTemperature = topFlywheelMotor.getDeviceTemp().getValue();
                 inputs.bottomMotorTemperature = botttomFlywheelMotor.getDeviceTemp().getValue();
 
-                inputs.beamBrake =shooterBeamBrake.get();
+                inputs.beamBrake = shooterBeamBrake.get();
                 ///                inputs.beamBrake = debounce.calculate(shooterBeamBrake.get());
 
         }

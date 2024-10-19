@@ -261,7 +261,7 @@ public class Constants {
                 public static final double pivotMaxVelocity = 1500.0;
                 public static final double pivotMaxAcceleration = 1500.0;
 
-                public static final int shooterBeamBrakeChannel = 0;
+                public static final int shooterBeamBrakeChannel = 5;
                 public static final int shooterMotorCurrentLimit = 80;
                 public static final int rollerMotorCurrentLimit = 80;
 

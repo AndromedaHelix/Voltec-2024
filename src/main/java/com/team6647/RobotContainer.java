@@ -328,7 +328,7 @@ public class RobotContainer extends SuperRobotContainer {
                                                 new RunCommand(() -> leds.solidYellow())).ignoringDisable(true)
                                                 .repeatedly());
 
-                new Trigger(() -> !shooterSubsystem.getBeamBrake()&&!andromedaSwerve.headingInTolerance())
+                new Trigger(() -> !shooterSubsystem.getBeamBrake()/*&&!andromedaSwerve.headingInTolerance()*/)
                                 .whileTrue(Commands.sequence(
                                                 new RunCommand(() -> leds.strobeGreen(0.2)).withTimeout(2),
                                                 new RunCommand(() -> leds.solidGreen())).ignoringDisable(true)
@@ -340,10 +340,10 @@ public class RobotContainer extends SuperRobotContainer {
                                                 new RunCommand(() -> leds.solidBlue())).ignoringDisable(true)
                                                 .repeatedly());
 
-                new Trigger(() -> !shooterSubsystem.getBeamBrake()&&andromedaSwerve.headingInTolerance())
-                                .whileTrue(Commands.sequence(
-                                                new RunCommand(() -> leds.rainbow())).ignoringDisable(false)
-                                                .repeatedly());
+                //new Trigger(() -> !shooterSubsystem.getBeamBrake()&&andromedaSwerve.headingInTolerance())
+                                //.whileTrue(Commands.sequence(
+                                                //new RunCommand(() -> leds.())).ignoringDisable(false)
+                                                //.repeatedly());
 
                 /*
                  * new Trigger(() -> DriverStation.isDisabled()).whileTrue(
