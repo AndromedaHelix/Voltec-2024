@@ -35,7 +35,7 @@ public class ShooterCommands {
                 new ShooterPivotTarget(pivotSubsystem, ShooterPivotState.INDEXING),
                 new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)
                 //new FlywheelTarget(shooterSubsystem, FlywheelState.STOPPED)
-                ).andThen(new WaitCommand(0.6));
+                ).andThen(new WaitCommand(0));
                 
                 
     }

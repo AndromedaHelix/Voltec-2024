@@ -80,8 +80,8 @@ public class Constants {
                                 INTAKING_ONLY_FORCED = driverController2.povLeft(),
 
                                 TARGET_FAR = NONE,//driverController2.povUp(),
-                                TARGET_LINE = new Trigger(() -> driverController1.getLeftY() > 0.6),
-                                TARGET_SUBWOOFER = new Trigger(() -> driverController1.getLeftY() < -0.6),
+                                TARGET_LINE = new Trigger(() -> driverController2.getLeftY() > 0.6),
+                                TARGET_SUBWOOFER = new Trigger(() -> driverController2.getLeftY() < -0.6),
                                 
                                 TOGGLE_AMP = driverController2.x(),
                                 SHOOT_SPEAKER = NONE,
@@ -249,7 +249,7 @@ public class Constants {
 
                 public static final double shooterTolerance = 100.0;
 
-                public static final double pivotKp = 50.0;
+                public static final double pivotKp = 60.0;
                 public static final double pivotKi = 1.5;
                 public static final double pivotKd = 0.0;
                 public static final double pivotMaxVel = 0.6;
@@ -278,7 +278,7 @@ public class Constants {
                 public static final double flywheelAmpRPM = 500;
 
                 public static final double rollerStoppedVelocity = 0.0;
-                public static final double rollerIntakingVelocity = 0.3;
+                public static final double rollerIntakingVelocity = 0.25;//0.3
                 public static final double rollerShootingVelocity = 0.6;
                 public static final double rollerExhaustingVelocity = -0.1;
                 public static final double rollerIdleVelocity = 0.1;
@@ -292,13 +292,13 @@ public class Constants {
                 public static final double subwooferRPM = 2500;
                 public static final double shootingRPM = 5000;
 
-                public static final int angleSubwoofer = -45;
+                public static final int angleSubwoofer = -46;
                 public static final int angleLine = -35;
                 public static final int angleFar = -30;
 
                 public static final int shuttleAngle1 = -45;
                 public static final int shuttleRPM1 = 2800;
-                public static final int shuttleAngle2 = -37;
+                public static final int shuttleAngle2 = -1;
                 public static final int shuttleRPM2 = 2800;
                 public static final int shuttleAngle3 = -45;
                 public static final int shuttleRPM3 = 2800;

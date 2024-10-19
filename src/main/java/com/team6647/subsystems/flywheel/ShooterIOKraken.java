@@ -36,7 +36,7 @@ public class ShooterIOKraken implements ShooterIO {
         private VelocityVoltage topFlywheelVelocityVoltage = new VelocityVoltage(0).withSlot(0);
         private VelocityVoltage bottomFlywheelVelocityVoltage = new VelocityVoltage(0).withSlot(0);
 
-        Debouncer debounce = new Debouncer(0.2);
+        Debouncer debounce = new Debouncer(0.10);
 
         public ShooterIOKraken() {
                 topFlywheelMotor.getConfigurator().apply(new TalonFXConfiguration());

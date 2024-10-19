@@ -663,27 +663,28 @@ public class RobotContainer extends SuperRobotContainer {
                 {Drive.setMDriveMode(DriveMode.TELEOP);}));
 
                 OperatorConstants.DEBUG_IDLE.onTrue(
-                        SuperStructure.update(SuperStructureState.IDLE)
+                        //SuperStructure.update(SuperStructureState.IDLE)
+                        new IntakeHome(intakePivotSubsystem)
                 );
 
                 OperatorConstants.TARGET_SUBWOOFER.or(OperatorConstants.TARGET_LINE).or(OperatorConstants.TARGET_LINE).onTrue(
                         new InstantCommand(()->{
                                 if(OperatorConstants.TARGET_SUBWOOFER.getAsBoolean()){
-                                        SuperStructure.subwooferRotation = ShooterConstants.angleSubwoofer;
+                                        //SuperStructure.subwooferRotation = ShooterConstants.angleSubwoofer;
                                         SuperStructure.shuttleAngle = ShooterConstants.shuttleAngle1;
                                         SuperStructure.shuttleRPM = ShooterConstants.shuttleRPM1;
                                 }
                                 if(OperatorConstants.TARGET_LINE.getAsBoolean()){
-                                        SuperStructure.subwooferRotation = ShooterConstants.angleLine;
+                                        //SuperStructure.subwooferRotation = ShooterConstants.angleLine;
                                         SuperStructure.shuttleAngle = ShooterConstants.shuttleAngle2;
                                         SuperStructure.shuttleRPM = ShooterConstants.shuttleRPM2;
                                 }
                                 if(OperatorConstants.TARGET_FAR.getAsBoolean()){
-                                        SuperStructure.subwooferRotation = ShooterConstants.angleFar;
+                                        //SuperStructure.subwooferRotation = ShooterConstants.angleFar;
                                         SuperStructure.shuttleAngle = ShooterConstants.shuttleAngle3;
                                         SuperStructure.shuttleRPM = ShooterConstants.shuttleRPM3;
                                 }
-                        }).andThen(
+                        })/*.andThen(
                                 new InstantCommand(() -> {
                                         ShootingParameters ampParams = new ShootingParameters(new Rotation2d(), SuperStructure.subwooferRotation, ShooterConstants.subwooferRPM);
                                         SuperStructure.updateShootingParameters(ampParams);}).andThen(
@@ -691,7 +692,7 @@ public class RobotContainer extends SuperRobotContainer {
                                         new FlywheelTarget(shooterSubsystem, FlywheelState.SHOOTING)
                                 ).onlyIf(()->SuperStructure.mRobotState==SuperStructureState.READY||SuperStructure.mRobotState==SuperStructureState.SHOOTING_SUBWOOFER)
                         )
-                        )
+                        )*/
 
                 );
         

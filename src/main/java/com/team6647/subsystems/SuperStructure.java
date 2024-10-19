@@ -237,8 +237,8 @@ public class SuperStructure {
     }
 
     private static Command autoShootingSubwoofer() {
-        return Commands.deadline(
-                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
+        return Commands.sequence(
+                new WaitCommand(0),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.SHOOTING_SUBWOOFER),
                         new InstantCommand(() -> {
@@ -505,8 +505,8 @@ public class SuperStructure {
     }
 
     private static Command autoShootingStationary() {
-        return Commands.deadline(
-                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
+        return Commands.sequence(
+                new WaitCommand(0),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.AUTO_SHOOTING_SPEAKER),
                         new InstantCommand(() -> {
@@ -525,8 +525,8 @@ public class SuperStructure {
 
     private static Command prepareAutoShootingStationary() {
         
-        return Commands.deadline(
-                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
+        return Commands.sequence(
+                new WaitCommand(0),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.AUTO_SHOOTING_SPEAKER),
                         new InstantCommand(() -> {
@@ -667,8 +667,8 @@ public class SuperStructure {
     }
 
     private static Command autoScoreAmp() {
-        return Commands.deadline(
-                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
+        return Commands.sequence(
+                new WaitCommand(0),
                 Commands.sequence(
                         prepareScoreAmp(),
                         Commands.waitSeconds(1),
