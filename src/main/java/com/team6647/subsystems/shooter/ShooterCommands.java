@@ -22,6 +22,7 @@ import com.team6647.util.Constants.OperatorConstants;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 public class ShooterCommands {
     private static ShooterSubsystem shooterSubsystem = RobotContainer.shooterSubsystem;
@@ -32,8 +33,9 @@ public class ShooterCommands {
         return Commands.deadline(
                 Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
                 new ShooterPivotTarget(pivotSubsystem, ShooterPivotState.INDEXING),
-                new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING),
-                new FlywheelTarget(shooterSubsystem, FlywheelState.STOPPED));
+                new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)
+                //new FlywheelTarget(shooterSubsystem, FlywheelState.STOPPED)
+                ).andThen(new WaitCommand(0.6));
                 
                 
     }

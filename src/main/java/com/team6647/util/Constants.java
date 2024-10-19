@@ -75,8 +75,8 @@ public class Constants {
 
                                 TOGGLE_INTAKE = driverController2.povRight(),
                                 INDEXING = driverController2.povUp(),
-                                INTAKE_SHUTTLE = driverController2.povDown(),
-                                INTAKING_ONLY = NONE,
+                                INTAKE_SHUTTLE = NONE,//driverController2.povDown(),
+                                INTAKING_ONLY = driverController2.povDown().or(driverController2.povLeft()),
                                 INTAKING_ONLY_FORCED = driverController2.povLeft(),
 
                                 TARGET_FAR = NONE,//driverController2.povUp(),
@@ -89,7 +89,7 @@ public class Constants {
                                 READY = driverController2.b(),
                                 SHUTTLE = driverController2.y(),
                                 
-                                CLIMB_TOP = driverController2.povUp(),
+                                //CLIMB_TOP = driverController2.povUp(),
                                 INTAKE_FEEDER = driverController2.rightTrigger().and(GMODE2.negate()),
                                 EXHAUST_FEEDER = driverController2.leftTrigger().and(GMODE2.negate()),
 

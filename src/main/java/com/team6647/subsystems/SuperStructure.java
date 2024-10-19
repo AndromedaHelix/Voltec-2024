@@ -238,7 +238,7 @@ public class SuperStructure {
 
     private static Command autoShootingSubwoofer() {
         return Commands.deadline(
-                Commands.waitUntil(() -> shooterSubsystem.getBeamBrake()),
+                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.SHOOTING_SUBWOOFER),
                         new InstantCommand(() -> {
@@ -250,7 +250,7 @@ public class SuperStructure {
                                 new FlywheelTarget(shooterSubsystem, FlywheelState.SHOOTING),
                                 new ShooterPivotTarget(shooterPivotSubsystem, ShooterPivotState.SHOOTING))
                                 .withTimeout(3),
-                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)));
+                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING))).andThen(new WaitCommand(1));
     }
     public static int autoShootingAngle = -45;
 
@@ -506,7 +506,7 @@ public class SuperStructure {
 
     private static Command autoShootingStationary() {
         return Commands.deadline(
-                Commands.waitUntil(() -> shooterSubsystem.getBeamBrake()),
+                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.AUTO_SHOOTING_SPEAKER),
                         new InstantCommand(() -> {
@@ -520,13 +520,13 @@ public class SuperStructure {
                                 new VisionSpeakerAlign(andromedaSwerve, visionSubsystem),
                                 new FlywheelTarget(shooterSubsystem, FlywheelState.SHOOTING),
                                 new ShooterPivotTarget(shooterPivotSubsystem, ShooterPivotState.SHOOTING)),
-                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)));
+                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING))).andThen(new WaitCommand(1));
     }
 
     private static Command prepareAutoShootingStationary() {
         
         return Commands.deadline(
-                Commands.waitUntil(() -> shooterSubsystem.getBeamBrake()),
+                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
                 Commands.sequence(
                         setGoalCommand(SuperStructureState.AUTO_SHOOTING_SPEAKER),
                         new InstantCommand(() -> {
@@ -542,7 +542,7 @@ public class SuperStructure {
                         Commands.waitUntil(()-> canShoot),
                         new InstantCommand(()->{canShoot = false;}),
                         new VisionSpeakerAlign(andromedaSwerve, visionSubsystem),
-                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)));
+                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING))).andThen(new WaitCommand(1));
 
                         
         }
@@ -668,12 +668,12 @@ public class SuperStructure {
 
     private static Command autoScoreAmp() {
         return Commands.deadline(
-                Commands.waitUntil(() -> shooterSubsystem.getBeamBrake()),
+                Commands.waitUntil(() -> !shooterSubsystem.getBeamBrake()),
                 Commands.sequence(
                         prepareScoreAmp(),
                         Commands.waitSeconds(1),
                         setGoalCommand(SuperStructureState.AUTO_AMP),
-                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING)));
+                        new ShooterRollerTarget(rollerSubsystem, ShooterFeederState.INTAKING))).andThen(new WaitCommand(1));
     }
 
     private static Command prepareAutoScoreAmp() {
