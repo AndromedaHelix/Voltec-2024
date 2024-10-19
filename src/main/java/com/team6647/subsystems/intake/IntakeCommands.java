@@ -29,7 +29,7 @@ public class IntakeCommands {
 
         public static final Command getFullIntakeCommand() {
 
-                Debouncer debounce = new Debouncer(0.3);
+                Debouncer debounce = new Debouncer(0.2);
 
                 return Commands.sequence(
                         new InstantCommand(()->{SuperStructure.hasNote=false;}),

@@ -63,7 +63,7 @@ public class Constants {
 
                                 SHOOTER_ALIGN1 = driverController1.rightBumper().or(driverController1.back()),
                                 INTAKE_ALIGN = NONE,//driverController1.leftTrigger(),
-                                PASS_ALIGN = driverController1.rightTrigger(),
+                                PASS_ALIGN = NONE, //driverController1.rightTrigger(),
                                 
                                 STRAIGHT = driverController1.leftBumper(),
                                 DEBUG_IDLE = driverController1.povUp();

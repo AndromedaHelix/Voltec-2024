@@ -209,7 +209,7 @@ public class RobotContainer extends SuperRobotContainer {
 
                 // -------- Auto Declaration --------
 
-                if(false){
+                if(true){
                 
                 NamedCommands.registerCommand("InitIntake",
                                 new InitIntake(intakePivotSubsystem));
@@ -589,7 +589,9 @@ public class RobotContainer extends SuperRobotContainer {
                 ;
 
                 OperatorConstants.ITEST.whileTrue(
-                new InstantCommand(()->{intakePivotSubsystem.setIntakeVoltage(2.00);})        
+                //SuperStructure.update(SuperStructureState.IDLE),
+                new FlywheelTarget(shooterSubsystem, FlywheelState.STOPPED)
+                //new InstantCommand(()->{})        
                 //new IntakeHome(intakePivotSubsystem)
                 );
 
