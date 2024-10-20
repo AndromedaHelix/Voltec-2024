@@ -249,7 +249,7 @@ public class Constants {
 
                 public static final double shooterTolerance = 100.0;
 
-                public static final double pivotKp = 60.0;
+                public static final double pivotKp = 40.0;
                 public static final double pivotKi = 1.5;
                 public static final double pivotKd = 0.0;
                 public static final double pivotMaxVel = 0.6;
@@ -292,7 +292,7 @@ public class Constants {
                 public static final double subwooferRPM = 2500;
                 public static final double shootingRPM = 5000;
 
-                public static final int angleSubwoofer = -46;
+                public static final int angleSubwoofer = -45;
                 public static final int angleLine = -35;
                 public static final int angleFar = -30;
 
