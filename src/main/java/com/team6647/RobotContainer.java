@@ -444,7 +444,7 @@ public class RobotContainer extends SuperRobotContainer {
                 OperatorConstants.PREPARE_SHOOTER
                                 .whileTrue(new InstantCommand(()->{
 
-                                                shooterSubsystem.setFlywheelState(FlywheelState.PREPARING);
+                                                //shooterSubsystem.setFlywheelState(FlywheelState.PREPARING);
                                         }
                                 ));
 
